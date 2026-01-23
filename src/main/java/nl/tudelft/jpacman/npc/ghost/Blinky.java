@@ -2,7 +2,6 @@ package nl.tudelft.jpacman.npc.ghost;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
@@ -57,17 +56,12 @@ public class Blinky extends Ghost {
 	 * @param spriteMap
 	 *            The sprites for this ghost.
 	 */
+	// TODO Blinky should speed up when there are a few pellets left, but he
+	// has no way to find out how many there are.
 	public Blinky(Map<Direction, Sprite> spriteMap) {
-		super(spriteMap);
+		super(spriteMap, MOVE_INTERVAL, INTERVAL_VARIATION);
 	}
 	
-	@Override
-	public long getInterval() {
-		// TODO Blinky should speed up when there are a few pellets left, but he
-		// has no way to find out how many there are.
-		return MOVE_INTERVAL + new Random().nextInt(INTERVAL_VARIATION);
-	}
-
 	/**
 	 * {@inheritDoc}
 	 * 

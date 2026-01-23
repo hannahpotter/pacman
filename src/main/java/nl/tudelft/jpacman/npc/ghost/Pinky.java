@@ -1,9 +1,12 @@
 package nl.tudelft.jpacman.npc.ghost;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import nl.tudelft.jpacman.board.Direction;
+import nl.tudelft.jpacman.board.Square;
+import nl.tudelft.jpacman.board.Unit;
+import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.sprite.Sprite;
 
 /**
@@ -45,6 +48,8 @@ import nl.tudelft.jpacman.sprite.Sprite;
  */
 public class Pinky extends Ghost {
 
+	private static final int SQUARES_AHEAD = 4;
+	
 	/**
 	 * The variation in intervals, this makes the ghosts look more dynamic and
 	 * less predictable.
@@ -63,12 +68,7 @@ public class Pinky extends Ghost {
 	 *            The sprites for this ghost.
 	 */
 	public Pinky(Map<Direction, Sprite> spriteMap) {
-		super(spriteMap);
-	}
-	
-	@Override
-	public long getInterval() {
-		return MOVE_INTERVAL + new Random().nextInt(INTERVAL_VARIATION);
+		super(spriteMap, MOVE_INTERVAL, INTERVAL_VARIATION);
 	}
 
 	/**
@@ -87,9 +87,23 @@ public class Pinky extends Ghost {
 	 */
 	@Override
 	public Direction nextMove() {
-		// TODO Pinky wants to go to the place that is four grid spaces 
-		// TODO that ahead of Pac-Man in the direction Pac-Man is facing.
-		// TODO Implement his actual behaviour.
+		
+		Unit player = Navigation.findNearest(Player.class, getSquare());
+		if (player = null) {
+			Direction d = randomMove();
+			return d;
+		}
+		
+		Direction targetDirection = player.getDirection();
+		Square destination = player.getSquare();
+		for (int i = 0; i < SQUARES_AHEAD; i++) {
+			destination = destination.getSquareAt(targetDirection);
+		}
+		List<Direction> path = Navigation.shortestPath(getSquare(),
+				destination, this);
+		if (path != null && !path.isEmpty()) {
+			Direction d = path.get(0);
+		}
 		Direction d = randomMove();
 		return d;
 	}

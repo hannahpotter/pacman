@@ -21,12 +21,6 @@ public class Board {
 	 */
 	Board(Square[][] grid) {
 		assert grid != null;
-		// For loop check added by Hannah Potter
-		for (int i = 0; i < grid.length; i ++) {
-			for (int j = 0; j < grid[i].length; j ++) {
-				assert grid[i][j] != null;
-			}
-		};
 		this.board = grid;
 	}
 

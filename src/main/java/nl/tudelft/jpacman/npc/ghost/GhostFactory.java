@@ -62,8 +62,4 @@ public class GhostFactory {
 	public Ghost createClyde() {
 		return new Clyde(sprites.getGhostSprite(GhostColor.ORANGE));
 	}
-
-	public Ghost createExperimenter() {
-		return new Experimenter(sprites.getGhostSprite(GhostColor.RED));
-	}
 }

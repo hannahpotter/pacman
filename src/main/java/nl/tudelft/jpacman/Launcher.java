@@ -178,31 +178,7 @@ public class Launcher {
 			public void doAction() {
 				game.move(p1, Direction.EAST);
 			}
-		}).addKey(KeyEvent.VK_W, new Action() { // the W, S, A, and D actions added by Hannah Potter
-
-					@Override
-					public void doAction() {
-						game.move(p1, Direction.NORTH);
-					}
-				}).addKey(KeyEvent.VK_S, new Action() {
-
-					@Override
-					public void doAction() {
-						game.move(p1, Direction.SOUTH);
-					}
-				}).addKey(KeyEvent.VK_A, new Action() {
-
-					@Override
-					public void doAction() {
-						game.move(p1, Direction.WEST);
-					}
-				}).addKey(KeyEvent.VK_D, new Action() {
-
-					@Override
-					public void doAction() {
-						game.move(p1, Direction.EAST);
-					}
-				});
+		});
 
 	}
 

@@ -1,4 +1,4 @@
-Code repo and patches from:
+Code repo and patches/pull requests from:
 
 di Biase M, Bruntink M, van Deursen A, Bacchelli A. 2019. The effects of change decomposition on code review—a controlled experiment. PeerJ Computer Science 5:e193 https://doi.org/10.7717/peerj-cs.193
 

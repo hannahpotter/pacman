@@ -1,7 +1,6 @@
 package nl.tudelft.jpacman.npc.ghost;
 
 import java.util.Map;
-import java.util.Random;
 
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.sprite.Sprite;
@@ -63,12 +62,7 @@ public class Pinky extends Ghost {
 	 *            The sprites for this ghost.
 	 */
 	public Pinky(Map<Direction, Sprite> spriteMap) {
-		super(spriteMap);
-	}
-	
-	@Override
-	public long getInterval() {
-		return MOVE_INTERVAL + new Random().nextInt(INTERVAL_VARIATION);
+		super(spriteMap, MOVE_INTERVAL, INTERVAL_VARIATION);
 	}
 
 	/**
